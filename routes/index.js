@@ -48,5 +48,35 @@ router.get('/book-add', (req, res) =>{
   res.render('book-add')
 })
 
+//post add book
+router.post('/book-add', (req, res) => {
+  console.log('body: ', req.body)
+  
+  const {
+    title,
+    author, 
+    description,
+    rating
+  } = req.body
+
+  //using new keyword by instance
+
+  const newBook = new Book({
+    title,
+    author,
+    description,
+    rating
+  })
+
+  newBook.save()
+  .then(response => {
+    console.log(response)
+    res.redirect('/books')
+  })
+  .catch(error => console.log(error))
+
+  //using crete method of Model
+
+})
 
 module.exports = router;
