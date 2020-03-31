@@ -41,6 +41,12 @@ router.get('/book/:bookId', (req, res) => {
     .catch(error => console.log(error));
 })
 
+//create book routes
+//get form
+
+router.get('/book-add', (req, res) =>{
+  res.render('book-add')
+})
 
 
 module.exports = router;
